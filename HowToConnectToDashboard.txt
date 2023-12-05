@@ -1,0 +1,17 @@
+To connect to the Dashboard:
+
+1. Activate WireGuard
+
+2. Export the Kubeconfig file:
+	-Run Command in command prompt: set KUBECONFIG=C:/Users/sebas/Downloads/k3s.yaml
+
+3. Get the token for the default kubectl service
+	-Run Command in command prompt: kubectl create token service
+
+4. Run kubectl proxy to start dashboard
+
+5. Go to this site and enter the token: http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login 
+
+
+(Optional) Use Admin-User token:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IkZKUHJ0bkEwWDhUemJkR1RCekFPV2ZObEtDOXZWWTFqYW1xTXIzSmdaN3cifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJva2Uta3ViZWNvbmZpZy1zYS10b2tlbiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJhZG1pbnVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiI4ZjRmY2ZlYi0wNjljLTQwZDMtOTI3Yi1kM2U3NDFkYWY1YmMiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6YWRtaW51c2VyIn0.skFvjl9SeathNXN3L-L6LIDd19bhZxwR7Zzb-kXl_kZR4GHDK0X7ta_XRT90DKLH0uaZ6ZtHqq3pvUrTYqJ7Fg7F95dCn1joewomdF7J3osZ9O_uCEUDLyht1vmHty_b4RmUFr8rQe7gtP9Dx_zb2kgROTeCcPEvwQHzP6busB2xzul3mqaDyLK2Gt1Df3RvwxP4DmniJEoyW_Tzq3WjELr2fQQRaIMLeGK4CSorQdAQ0J-K_1hN61irosu49B-2_yBRLlbgLMaHG9HPgIuHi1taIDumkpT--aqtHnCmY1pDJGKBkRpUFLg-wIHDJiPrKRps7lMvlYqY5cLLbGwKtQ
