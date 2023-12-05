@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website-dep
+#names the deployment
+  namespace: web-pods
+#puts the deployment in a specific namespace
+spec:
+  replicas: 3
+#creates 3 replica pods of the cluster
+  selector:
+    matchLabels:
+      app: my-website
+#Selects Pods with the label 'app: my-website'
+  template:
+    metadata:
+      labels:
+        app: my-website
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: node-role
+                operator: In
+                values:
+                - worker
+#ensures replica websites are only being deployed on worker nodes and not teh master
+      containers:
+      - name: my-website
+        image: gonzalesch/my-website:v8
+#gets the image from my docker hub account (gonzalesch) and pulls the docker image i pushed called my website with the v8 tag
+        ports:
+        - containerPort: 8080
+# Port on which the container will listen for traffic
+
+

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: website-serv
+# name of the service deployment listed in the cluster info
+spec:
+  selector:
+    app: my-website
+# Selects Pods with the label 'app: my-website'
+  ports:
+    - protocol: TCP
+# specifies TCP protocol
+      port: 80
+# exposes port 80 on the service
+      targetPort: 8080
+ # Routes traffic to port 8080 on the selected Pods
+  type: NodePort
+#exposes the service on a port specified via nodeport
+
